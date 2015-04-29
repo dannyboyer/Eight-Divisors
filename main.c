@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <sys/time.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[])
 {
     //arg
-    unsigned int max = 1000;
+    unsigned int max = atoi(argv[1]);
    
     unsigned int count, i, div_count, divisor;
 
@@ -37,7 +38,6 @@ int main(int argc, char *argv[])
         if(div_count == 8)
         {
             count += 1;    
-            printf("divisor : %d\n", i);
         }
     }
     
