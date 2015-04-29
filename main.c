@@ -1,12 +1,20 @@
 #include <stdio.h>
-#include <time.h>
+#include <sys/time.h>
 
 int main(int argc, char *argv[])
 {
     //arg
-    unsigned int max = 1000000;
+    unsigned int max = 1000;
    
     unsigned int count, i, div_count, divisor;
+
+    //time var
+    double timeStart, timeEnd, Texec;
+    struct timeval tp;
+
+    //start time
+    gettimeofday(&tp, NULL);
+    timeStart = (double) (tp.tv_sec) + (double) (tp.tv_usec) / 1e6;
     
     //iterate between min to max
     //optimize loop by going 100 to 1 instead of the inverse
@@ -32,8 +40,15 @@ int main(int argc, char *argv[])
             printf("divisor : %d\n", i);
         }
     }
-
-    printf("count : %d\n", count);
+    
+    //end timer
+    gettimeofday(&tp, NULL);
+    timeEnd = (double) (tp.tv_sec) + (double) (tp.tv_usec) / 1e6;
+    Texec = timeEnd - timeStart;
+    printf("\nExecution time : %f seconds", Texec);
+    
+    printf("\nCount : %d\n", count);
+    
    
     return 0;    
 }
