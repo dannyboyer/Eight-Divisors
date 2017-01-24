@@ -10,3 +10,4 @@ You are given f(100) = 10, f(1000) = 180 and f(10^6) = 224427.
 
 Find f(10^12).
 
+Par Samuel Carriere
